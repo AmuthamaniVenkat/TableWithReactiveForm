@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <h1 class="display-2">Insert Multiple Data Using Reactive Form In Angular 7</h1>
+  <form [formGroup]="SchoolDetailsForm" (submit)="SaveData()">
+    <table class="table table-sm table-dark table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Class</th>
+          <th scope="col">Total Student</th>
+          <th scope="col">GradeA Student</th>
+          <th scope="col">GradeB Student</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="ClassDetails"  *ngFor="let cd of SchoolDetailsForm.controls.ClassDetails.controls ;let i=index;">
+        <tr  formGroupName={{i}}>
+            <td ><input class="form-control" type="text" formControlName="Class" placeholder="class" /></td>
+            <td> <input class="form-control" type="text" formControlName="TotalStudent" placeholder="Total Student" /> </td>
+            <td> <input class="form-control" type="text" formControlName="GradeAStudent" placeholder="Total Grade A Student" /> </td>
+            <td> <input  class="form-control" type="text" formControlName="GradeBStudent" placeholder="Total Grade B Student" /> </td>
+        </tr>
+      </tbody>
+      <tbody >
+          <tr  >
+              <td  colspan="4"> <input class="btn btn-secondary col-md-5" type="submit" value="Click Me" />  </td>
+              
+          </tr>
+        </tbody>
+    </table>
+  </form>
+</div>
